@@ -9,22 +9,38 @@ LOL as the name suggest
   "data": [
     { 
       "MOST_HELPFUL": [ReviewObject], 
-      "count": 46 
+      "count": 50 
     },
     { 
       "MOST_RECENT": [ReviewObject], 
-      "count": 76 
+      "count": 50 
     },
     { 
       "POSITIVE_FIRST": [ReviewObject], 
-      "count": 76 
+      "count": 100 
     },
     { 
       "NEGATIVE_FIRST": [ReviewObject], 
-      "count": 76 
+      "count": 100 
     }
   ],
-  "total_count": 274,
-  "response_time_ms": 21,
-  "speed": "13.0 rev/sec"
+  "total_count": 300,
+  "response_time_ms": 18,
+  "speed": "16.6 rev/sec"
 }
+
+`ReviewObject`
+```
+{
+  "rating": "5.0",
+  "head_review": "string",
+  "review_for": "string",
+  "text_review": "string",
+  "name": "string",
+  "city": "string",
+  "helpful": "string",
+  "not_helpful": "string",
+  "ago": "string",
+  "media": ["url1", "url2"]
+}
+```
