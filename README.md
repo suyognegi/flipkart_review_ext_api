@@ -109,7 +109,10 @@ in your local of **PyCham venv** run
 pip install fastapi uvicorn playwright && playwright install chromium
 
 ```
-
+or 
+```bash
+pip install -r requirements.txt
+```
 and then run 
 
 ```bash
