@@ -1,0 +1,3 @@
+LOL as the name suggest 
+
+# FLIPKART REVIEW EXTRACTION API
