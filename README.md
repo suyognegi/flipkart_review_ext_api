@@ -16,11 +16,11 @@
   
   ### INPUTs :-
 
-  `url` (necesary)
-  
-  `const_alpha` (optional)
-  
-  `limit` (optional)
+- `url` (necessary)
+
+- `const_alpha` (optional)
+
+- `limit` (optional)
 
  >adjust the const_alpha variablee low means less reviews hence faster
  >high the value more the reviews hence slower (advixe keep it max to 12 (have successfully extracted 1576 total reviewed reviews with speed 13/sec) )
