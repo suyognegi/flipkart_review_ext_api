@@ -99,3 +99,21 @@
 ---
 
 
+
+## HOW TO RUN
+
+download keep your main.py file someone and note its location
+in your local of **PyCham venv** run
+
+```bash
+pip install fastapi uvicorn playwright && playwright install chromium
+
+```
+
+and then run 
+
+```bash
+uvicorn main:app
+```
+
+
