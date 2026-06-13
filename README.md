@@ -14,7 +14,7 @@
   NOTE : Later user pydentic 
 
   
-  ###INPUTs :-
+  ### INPUTs :-
 
   `url` (necesary)
   
