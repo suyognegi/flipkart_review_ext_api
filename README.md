@@ -4,12 +4,22 @@
 
 
 ## WHAT DOES IT DO ?
+
   LOL as the name suggest 
+
+  
   IT extract reviews from the provied url of flipkart product
+
+  
   NOTE : Later user pydentic 
+
+  
   ###INPUTs :-
+
   `url` (necesary)
+  
   `const_alpha` (optional)
+  
   `limit` (optional)
 
  >adjust the const_alpha variablee low means less reviews hence faster
