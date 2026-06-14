@@ -142,7 +142,11 @@ inorder to extract and store that extrcated data of certain keywords like `smart
 ### HOW TO USE IT ?
 1) Make sure you have `main.py` api hosted/running and having the port/host same
 2) Its necesary you have `product_url_collector.py` and `review_processor.py` be there
-3) Then run `start.py` > In start.py you can adjust the `product_name` or the `review_limit` or `alpha` (let the alpha be not so touched)
+3) Then run `start.py`
+
+
+
+> In start.py you can adjust the `product_name` or the `review_limit` or `alpha` (let the alpha be not so touched)
 
 
 
