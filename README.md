@@ -131,3 +131,19 @@ http://127.0.0.1:8001/reviews?url=https://www.flipkart.com/cadbury-dairy-milk-sh
 ```
 
 
+---
+
+
+# SAVING THE EXTRACTED DATA (OPTIONAL STUFF)
+
+so as your api is running most of us want real data to train or test our model 
+inorder to extract and store that extrcated data of certain keywords like `smartphone / tshirt / shoes ...`
+
+### HOW TO USE IT ?
+1) Make sure you have `main.py` api hosted/running and having the port/host same
+2) Its necesary you have `product_url_collector.py` and `review_processor.py` be there
+3) Then run `start.py` > In start.py you can adjust the `product_name` or the `review_limit` or `alpha` (let the alpha be not so touched)
+
+
+
+
