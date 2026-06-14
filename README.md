@@ -39,19 +39,19 @@
   "success": true,
   "data": [
     { 
-      "MOST_HELPFUL": [ReviewObject,ReviewObject,ReviewObject], 
+      "MOST_HELPFUL": [ReviewObject , ReviewObject , ReviewObject...], 
       "count": 50 
     },
     { 
-      "MOST_RECENT": [ReviewObject,ReviewObject,ReviewObject], 
+      "MOST_RECENT": [ReviewObject , ReviewObject , ReviewObject...], 
       "count": 50 
     },
     { 
-      "POSITIVE_FIRST": [ReviewObject,ReviewObject,ReviewObject], 
+      "POSITIVE_FIRST": [ReviewObject , ReviewObject , ReviewObject...], 
       "count": 100 
     },
     { 
-      "NEGATIVE_FIRST": [ReviewObject,ReviewObject,ReviewObject], 
+      "NEGATIVE_FIRST": [ReviewObject , ReviewObject , ReviewObject...], 
       "count": 100 
     }
   ],
