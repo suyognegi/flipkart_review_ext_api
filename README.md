@@ -152,13 +152,13 @@ in order to extract and store that extrcated data of certain keywords like `smar
 
 
 
-> In start.py you can adjust the `product_name` or the `review_limit` or `alpha` (let the alpha be not so touched) or `hash_file` or `review_file`
+> In start.py you can adjust the `product_name` (NECESSARY) or the `review_limit` or `alpha` (let the alpha be not so touched) or `hash_file` or `review_file` or `page` 
 >
 > or simply store the data where/however you like
 
 
 <br>
 
-#### Dataset
+##### Dataset
 
 [Download 160,337 review dataset](https://drive.google.com/file/d/1JvyLX8KNBiH8vjjYCAzN45b31XmpTFts/view?usp=sharing)
