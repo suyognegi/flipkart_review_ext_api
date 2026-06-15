@@ -160,4 +160,4 @@ in order to extract and store that extrcated data of certain keywords like `smar
 
 ### Dataset
 
-[📂 Download the 160,337-review dataset](https://drive.google.com/file/d/1JvyLX8KNBiH8vjjYCAzN45b31XmpTFts/view?usp=sharing)
+[Download 160,337 review dataset](https://drive.google.com/file/d/1JvyLX8KNBiH8vjjYCAzN45b31XmpTFts/view?usp=sharing)
