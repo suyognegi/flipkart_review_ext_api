@@ -152,7 +152,7 @@ in order to extract and store that extrcated data of certain keywords like `smar
 
 
 
-> In start.py you can adjust the `product_name` (NECESSARY) or the `review_limit` or `alpha` (let the alpha be not so touched) or `hash_file` or `review_file` or `page` 
+> In ``start.py you`` can adjust the `product_name` (NECESSARY) or the `review_limit` or `alpha` (let the alpha be not so touched) or `hash_file` or `review_file` or `page` 
 >
 > or simply store the data where/however you like
 
