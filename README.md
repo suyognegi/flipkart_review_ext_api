@@ -31,10 +31,10 @@
  >personally note havig limit is good (fast) and gnerally generates result 2.8x*limit ~ 4*limit
 
 
-<br>
-<br>
+
+
 ***
-<br>
+
 
 `OUTPUT SCHEMA : `
 ```json
@@ -99,10 +99,10 @@
       ]
     }
 ```
-<br>
+
 ***
-<br>
-<br>
+
+
 
 
 ## HOW TO RUN
@@ -135,10 +135,10 @@ after running the above in your shell you can test it by, paste the below code i
 http://127.0.0.1:8001/reviews?url=https://www.flipkart.com/cadbury-dairy-milk-shots-chocolate-balls-truffles/p/itm961397bf05e15?pid=CHCFP7FHA3CCQHSQ&lid=LSTCHCFP7FHA3CCQHSQKKYGRI&marketplace=FLIPKART&q=chocolate&store=eat%2F0pt&srno=s_1_2&otracker=search&otracker1=search&fm=Search&iid=da4a7518-d52a-4c5a-9867-ffee409ae327.CHCFP7FHA3CCQHSQ.SEARCH&ppt=sp&ppn=sp&qH=c378985d629e99a4&ov_redirect=true&ov_redirect=true&const_alpha=12&limit=93
 ```
 
-<br>
+
 ***
-<br>
-<br>
+
+
 
 # SAVING THE EXTRACTED DATA (OPTIONAL STUFF)
 
@@ -157,7 +157,7 @@ in order to extract and store that extrcated data of certain keywords like `smar
 > or simply store the data where/however you like
 
 
-<br>
+
 
 ##### Dataset
 
