@@ -33,7 +33,7 @@
 
 
 
-***
+<br><br>
 
 
 `OUTPUT SCHEMA : `
@@ -100,7 +100,7 @@
     }
 ```
 
-***
+<br><br>
 
 
 
@@ -136,7 +136,7 @@ http://127.0.0.1:8001/reviews?url=https://www.flipkart.com/cadbury-dairy-milk-sh
 ```
 
 
-***
+<br><br>
 
 
 
