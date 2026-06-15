@@ -1,92 +1,133 @@
+import json
+import time
+import requests
 import asyncio
-import datetime
-from playwright.async_api import async_playwright
+from product_url_collector import product_url_collector
 
 
-class product_url_collector:
-    def __init__(self, product_name, pages=15, concurrency=4):
-        self.product_name = product_name.strip()
-        self.pages = pages
-        self.concurrency = concurrency
-        self.search_query = product_name.replace(" ", "%20")
-        self.final_data = []
+class review_processor:
+    def __init__(
+        self,
+        product_name,
+        review_limit=900,
+        hash_file="hashmap2.json",
+        review_file="all_reviews2.json",
+        sleep_time=5,
+            alpha=8,
+            page=10
+    ):
+        self.page=page
+        self.product_name = product_name
+        self.review_limit = review_limit
 
-    async def _extract_links(self, browser, page_no):
-        url = (
-            f"https://www.flipkart.com/search?"
-            f"q={self.search_query}"
-            f"&otracker=search&otracker1=search"
-            f"&marketplace=flipkart&as-show=on&as=off"
-            f"&page={page_no}"
+        self.hash_file = hash_file
+        self.review_file = review_file
+        self.sleep_time = sleep_time
+
+        self.hashmap = self._load_json(self.hash_file)
+        self.all_reviews = self._load_json(self.review_file)
+        self.alpha=alpha
+
+        self.all_urls = []
+
+    async def get_all_urls(self):
+        collector = product_url_collector(
+            product_name=self.product_name,
+            pages=self.page,
+            concurrency=3
         )
+        return await collector.run()
 
-        page = await browser.new_page()
+    async def init_urls(self):
+        self.all_urls = await self.get_all_urls()
 
+    def extract_pid(self, url):
+        return url.split("pid=")[1].split("&")[0]
+
+    def _load_json(self, filename):
         try:
-            await page.goto(url)
-            await page.wait_for_load_state("domcontentloaded")
+            with open(filename, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return {}
 
-            links = await page.evaluate("""
-                () => {
-                    const results = [];
-                    document.querySelectorAll("a[href*='/p/']").forEach(a => {
-                        if (a.href && !results.includes(a.href)) {
-                            results.push(a.href);
-                        }
-                    });
-                    return results;
-                }
-            """)
+    def _save_json(self, filename, data):
+        with open(filename, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
 
-            return links
-
-        finally:
-            await page.close()
-
-    async def _worker(self, browser, queue, results):
-        while True:
-            page_no = await queue.get()
-
-            if page_no is None:
-                queue.task_done()
-                break
+    def run(self):
+        for idx, url in enumerate(self.all_urls):
+            pid = None
 
             try:
-                links = await self._extract_links(browser, page_no)
-                results.extend(links)
-            finally:
-                queue.task_done()
+                pid = self.extract_pid(url)
 
-    async def run(self):
-        start_time = datetime.datetime.now()
-        print("started_at:", start_time.strftime("%Y-%m-%d %H:%M:%S"))
+                print(f"\n[{idx}/{len(self.all_urls)}] {self.product_name} → {pid}")
 
-        queue = asyncio.Queue()
-        results = []
+                self.hashmap[pid] = {
+                    "link": url,
+                    "product": self.product_name
+                }
+                self._save_json(self.hash_file, self.hashmap)
 
-        for page_no in range(1, self.pages + 1):
-            queue.put_nowait(page_no)
+                if pid in self.all_reviews:
+                    print(f"Skipping {pid}")
+                    continue
 
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=False)
+                api = (
+                    f"http://127.0.0.1:8001/reviews"
+                    f"?url={url}"
+                    f"&const_alpha={self.alpha}"
+                    f"&limit={self.review_limit}"
+                    f"&product={self.product_name}"
+                )
 
-            workers = [
-                asyncio.create_task(self._worker(browser, queue, results))
-                for _ in range(self.concurrency)
-            ]
+                print("Calling API...")
 
-            await queue.join()
+                response = requests.get(api, timeout=None)
+                response.raise_for_status()
 
-            for _ in workers:
-                queue.put_nowait(None)
+                data = response.json()
 
-            await asyncio.gather(*workers)
+                t = data.get("time")
+                s = data.get("speed")
 
-            await browser.close()
+                if t:
+                    del data["time"]
 
-        self.final_data = list(set(results))
+                if s:
+                    del data["speed"]
 
-        print("total_links_found:", len(self.final_data))
-        print("finished_at:", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                self.all_reviews[pid] = {
+                    "status": "success",
+                    "link": url,
+                    "product": self.product_name,
+                    "data": data
+                }
+                try:
+                    print(f'time : {t}\nspeed : {s}\nquantity',data['count'])
 
-        return self.final_data
+                except:
+                    print('error agaya')
+                    pass
+
+
+                self._save_json(self.review_file, self.all_reviews)
+
+                print(f"Saved {pid}")
+
+            except Exception as e:
+                print(f"Failed {pid}: {e}")
+
+                self.all_reviews[pid] = {
+                    "status": "failed",
+                    "link": url,
+                    "product": self.product_name,
+                    "error": str(e)
+                }
+
+                self._save_json(self.review_file, self.all_reviews)
+
+            time.sleep(self.sleep_time)
+
+        print("\nDone.")
