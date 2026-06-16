@@ -49,8 +49,8 @@ async def scrape_reviews(url, sort_type, stability_count, review_limit):
             dat = []
             counter = 1
 
-            await page.mouse.move(400, 700)
-            await page.mouse.click(400, 700)
+            await page.mouse.move(562, 584)
+            await page.mouse.click(562, 584)
 
             while await keep_scrolling(dat, stability_count, review_limit,sort_type):
                 await page.mouse.wheel(0, bottom)
@@ -171,7 +171,7 @@ def info():
 
 
 @app.get("/reviews")
-async def get_reviews(url: str=Query(...),const_alpha: int=Query(8,ge=3,le=20),limit: int = Query(93,ge=0,le=500)):
+async def get_reviews(url: str=Query(...),const_alpha: int=Query(8,ge=3,le=20),limit: int = Query(93,ge=0,le=1500)):
     try:
         print(f"got url={url}\nconst_alpha={const_alpha} , limit={limit}")
         t1=datetime.datetime.now()
@@ -224,7 +224,7 @@ personally note havig limit is good (fast) and gnerally generates result 2.8x*li
 """
 
 
-# uvicorn anshul_alptop:app --port 8001
+# uvicorn main:app --port 8001
 # if __name__ == "__main__":
 #     import uvicorn
 #     uvicorn.run(app, host="0.0.0.0", port=8001)
