@@ -163,3 +163,4 @@ in order to extract and store that extrcated data of certain keywords like `smar
 ##### Dataset :-
 [Download 160,337 review dataset (smartphones)](https://drive.google.com/file/d/1JvyLX8KNBiH8vjjYCAzN45b31XmpTFts/view?usp=sharing) <br>
 [Download 175,365 review dataset (earphones)](https://drive.google.com/file/d/171YSyokHx7BFJ0xW2L7jrSy8JddaelTT/view?usp=sharing)
+[Download 118,115 review dataset (washing machine)](https://drive.google.com/file/d/1TImf0qU_-2tDwEkM50S9ueLv1Fqa2yDa/view?usp=sharing)
