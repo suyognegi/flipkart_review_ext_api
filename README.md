@@ -168,4 +168,7 @@ in order to extract and store that extrcated data of certain keywords like `smar
 <br>
 [Download 59,262 review dataset (AC)](https://drive.google.com/file/d/1xScYdWZzLcf6OhT4QAixNsI1CDVjJkvG/view?usp=sharing)
 <br>
-[Download 200,636 review dataset (refrigerator)](https://drive.google.com/file/d/1EzYpc9NMBU95KpnoArfVFIFFmpFStEqd/view?usp=sharing)
+[Download 200,636 review dataset (refrigerators)](https://drive.google.com/file/d/1EzYpc9NMBU95KpnoArfVFIFFmpFStEqd/view?usp=sharing)
+<br>
+[Download 44,541 review dataset (laptops)](https://drive.google.com/file/d/1p7o_Q3sJAQnG1i1dkpBJ-5Wk9Z0dS5sX/view?usp=sharing)
+<br>
