@@ -166,9 +166,20 @@ in order to extract and store that extrcated data of certain keywords like `smar
 [Download 118,115 review dataset (washing machine)](https://drive.google.com/file/d/1TImf0qU_-2tDwEkM50S9ueLv1Fqa2yDa/view?usp=sharing)<br>
 [Download 104,157 review dataset (TV)](https://drive.google.com/file/d/1JGLZFWzSGUyhq0Ave4IjDZzCO-Lv3vcf/view?usp=sharing)
 <br>
-[Download 59,262 review dataset (AC)](https://drive.google.com/file/d/1xScYdWZzLcf6OhT4QAixNsI1CDVjJkvG/view?usp=sharing)
+[Download 95,945 review dataset (AC)](https://drive.google.com/file/d/1fI12ohGPEI0DZXADcmCnYcVkaTmYBr8Y/view?usp=sharing)
 <br>
 [Download 200,636 review dataset (refrigerators)](https://drive.google.com/file/d/1EzYpc9NMBU95KpnoArfVFIFFmpFStEqd/view?usp=sharing)
 <br>
 [Download 44,541 review dataset (laptops)](https://drive.google.com/file/d/1p7o_Q3sJAQnG1i1dkpBJ-5Wk9Z0dS5sX/view?usp=sharing)
 <br>
+[Download 133,757 review dataset (books)](https://drive.google.com/file/d/1AlNtcrd8PqWd7tLUDnOWMgSrtym0Dh2x/view?usp=sharing)
+<br>
+[Download 103,559 review dataset (fitness equipments)](https://drive.google.com/file/d/1HRDHce_MzeIaDbKIhnt3_uTiREiufKFX/view?usp=sharing)
+<br>
+[Download 140,560 review dataset (men footwear)](https://drive.google.com/file/d/1aVnmn5ZZ4q2XhJ7spP6I6WYhDFOdfp_O/view?usp=sharing)
+<br>
+[Download 120,165 review dataset (women footwear)](https://drive.google.com/file/d/1AaZLdebwnfx5J67eDROhWU6Bn6C1MzGG/view?usp=sharing)
+<br>
+[Download 26,792 review dataset (chocolates)](https://drive.google.com/file/d/1nwdjDuXz7ZtBx-n3ZpLdsTAjur3tIA12/view?usp=sharing)
+<br>
+
