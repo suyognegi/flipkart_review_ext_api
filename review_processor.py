@@ -6,14 +6,8 @@ from product_url_collector import product_url_collector
 
 
 class review_processor:
-    def __init__(
-        self,
-        product_name,
-        review_limit=900,
-        hash_file="hashmap2.json",
-        review_file="all_reviews2.json",
-        sleep_time=5
-    ):
+    def __init__(self,product_name,review_limit=300,hash_file="laptop_hashmap.json",review_file="laptop_review.json",sleep_time=1,alpha=14,page=10):
+        self.page=page
         self.product_name = product_name
         self.review_limit = review_limit
 
@@ -23,13 +17,14 @@ class review_processor:
 
         self.hashmap = self._load_json(self.hash_file)
         self.all_reviews = self._load_json(self.review_file)
+        self.alpha=alpha
 
         self.all_urls = []
 
     async def get_all_urls(self):
         collector = product_url_collector(
             product_name=self.product_name,
-            pages=10,
+            pages=self.page,
             concurrency=3
         )
         return await collector.run()
@@ -52,6 +47,7 @@ class review_processor:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
     def run(self):
+
         for idx, url in enumerate(self.all_urls):
             pid = None
 
@@ -71,9 +67,9 @@ class review_processor:
                     continue
 
                 api = (
-                    f"http://127.0.0.1:8001/reviews"
+                    f"http://127.0.0.1:8002/reviews"
                     f"?url={url}"
-                    f"&const_alpha=7"
+                    f"&const_alpha={self.alpha}"
                     f"&limit={self.review_limit}"
                     f"&product={self.product_name}"
                 )
@@ -105,6 +101,7 @@ class review_processor:
 
                 except:
                     print('error agaya')
+                    print(f'time : {t}\nspeed : {s}\n')
                     pass
 
 
