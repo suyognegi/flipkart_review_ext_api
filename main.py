@@ -60,11 +60,11 @@ async def scrape_reviews(url, sort_type, stability_count, review_limit):
                 height = await page.evaluate("document.getElementsByClassName('lQLKCP')[0].children.length")
                 print(sort_type, height)
                 dat.append(height)
-                print(sort_type, counter, datetime.datetime.now())
+                #print(sort_type, counter, datetime.datetime.now())
                 print(sort_type, dat)
                 counter += 1
 
-            print(f'starting 2nd {datetime.datetime.now()}')
+            #print(f'starting 2nd {datetime.datetime.now()}')
 
             query = """
                 ()=>{
@@ -84,7 +84,7 @@ async def scrape_reviews(url, sort_type, stability_count, review_limit):
                         }
 
                         let head_node = ele.children[0];
-                        let rating = head_node.children[1].textContent.slice(0, 3);
+                        let rating = head_node.children[1].textContent.slice(0,3);
                         let head_review = head_node.children[2].textContent;
                         let review_for = ele.children[1].textContent;
                         let text_review = ele.children[2].innerText; 
@@ -142,14 +142,14 @@ async def scrape_reviews(url, sort_type, stability_count, review_limit):
             """
 
             final_data = await page.evaluate(query)
-            print(f'finished {datetime.datetime.now()}')
+            #print(f'finished {datetime.datetime.now()}')
 
             await browser.close()
 
             return final_data
 
     except Exception as e:
-        print(f"Error in {sort_type}: {str(e)}")
+        #print(f"Error in {sort_type}: {str(e)}")
         return []
 
 
@@ -174,6 +174,7 @@ def info():
 async def get_reviews(url: str=Query(...),const_alpha: int=Query(8,ge=3,le=20),limit: int = Query(93,ge=0,le=1500)):
     try:
         print(f"got url={url}\nconst_alpha={const_alpha} , limit={limit}")
+        print(datetime.datetime.now())
         t1=datetime.datetime.now()
 
         urls_=create_urls(url)
@@ -191,8 +192,11 @@ async def get_reviews(url: str=Query(...),const_alpha: int=Query(8,ge=3,le=20),l
             a["count"]=len(r_)
             aa.append(a)
 
-
-        print(f'{len(x)/(datetime.datetime.now()-t1).seconds:.1f} rev/sec')
+        try:
+            print(f'{len(x)/(datetime.datetime.now()-t1).seconds:.1f} rev/sec')
+            print(datetime.datetime.now())
+        except:
+            pass
         return {
             'success': True,
             # 'message': 'good success', # temporary rmeoveing it for reducing the space in json file
@@ -224,7 +228,7 @@ personally note havig limit is good (fast) and gnerally generates result 2.8x*li
 """
 
 
-# uvicorn main:app --port 8001
+# uvicorn anshul_alptop:app --port 8001
 # if __name__ == "__main__":
 #     import uvicorn
 #     uvicorn.run(app, host="0.0.0.0", port=8001)
