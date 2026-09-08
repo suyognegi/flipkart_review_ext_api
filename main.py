@@ -58,9 +58,9 @@ async def scrape_reviews(url, sort_type, stability_count, review_limit):
                 await page.mouse.wheel(0, -400)
 
                 height = await page.evaluate("document.getElementsByClassName('lQLKCP')[0].children.length")
-                print(sort_type, height)
+                #print(sort_type, height)
                 dat.append(height)
-                #print(sort_type, counter, datetime.datetime.now())
+                print(sort_type, counter, datetime.datetime.now())
                 print(sort_type, dat)
                 counter += 1
 
@@ -84,7 +84,7 @@ async def scrape_reviews(url, sort_type, stability_count, review_limit):
                         }
 
                         let head_node = ele.children[0];
-                        let rating = head_node.children[1].textContent.slice(0,3);
+                        let rating = head_node.children[1].textContent.slice(0, 3);
                         let head_review = head_node.children[2].textContent;
                         let review_for = ele.children[1].textContent;
                         let text_review = ele.children[2].innerText; 
