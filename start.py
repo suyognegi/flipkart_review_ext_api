@@ -1,15 +1,16 @@
 
-
 import asyncio
 from review_processor import review_processor
 
-
+item='smartphones'
 async def start():
     processor = review_processor(
-        product_name="laptop",
-        review_limit=1000,
-        page=15,
-        alpha=12
+        product_name=item,
+        review_limit=93,
+        page=10,
+        alpha=8,
+        hash_file=f"{item}_hashmap.json",
+        review_file=f"{item}_review.json"
     )
 
     await processor.init_urls()
